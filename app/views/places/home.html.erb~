@@ -4,8 +4,9 @@
 
 	<div class="middiv">
 
-	  <%= @spot.
-
+	  <% for i in @spot.name.count %>
+	    <p><%= @spot.name %></p>
+          <% end %>
 	</div>
 
 	<div class="rightdiv">

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :locations
   get 'places/home'
 
   root        'static_pages#home'
