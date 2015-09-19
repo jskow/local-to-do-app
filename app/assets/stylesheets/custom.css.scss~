@@ -1,0 +1,19 @@
+@import "bootstrap";
+
+/* Home dividers */
+.leftdiv {
+  float: left;
+  width: 20px;
+}
+
+.middiv {
+}
+
+.rightdiv {
+  float: right;
+  width: 20px;
+}
+
+.home {
+  margin-top: 80px;
+}

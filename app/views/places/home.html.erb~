@@ -1,0 +1,13 @@
+<div class="home">
+	<div class="leftdiv">
+	</div>
+
+	<div class="middiv">
+
+	  <%= @spot.
+
+	</div>
+
+	<div class="rightdiv">
+	</div>
+</div>
