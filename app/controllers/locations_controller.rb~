@@ -28,8 +28,8 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to @location, notice: 'Location was successfully created.' }
-        format.json { render :show, status: :created, location: @location }
+        format.html { redirect_to places_url(latitude: @location.latitude, longitude: @location.longitude), notice: 'Location was successfully created.' }
+        format.json { redirect_to places_url, status: :created, location: @location }
       else
         format.html { render :new }
         format.json { render json: @location.errors, status: :unprocessable_entity }
@@ -78,7 +78,7 @@ class LocationsController < ApplicationController
   end
 
   def place_search
-    @spot = @client.spots_by_query('Pizza near Miami Florida', :types => ['restaurant', 'food'], :exclude => ['cafe', 'establishment'])
+    @spot = @client.spots(@location.latitude, @location.longitude, :types => 'pizza')
   end
 
 end

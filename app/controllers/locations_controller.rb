@@ -28,8 +28,8 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to @location, notice: 'Location was successfully created.' }
-        format.json { render :show, status: :created, location: @location }
+        format.html { redirect_to places_url(latitude: @location.latitude, longitude: @location.longitude), notice: 'Location was successfully created.' }
+        format.json { redirect_to places_url, status: :created, location: @location }
       else
         format.html { render :new }
         format.json { render json: @location.errors, status: :unprocessable_entity }
@@ -72,13 +72,6 @@ class LocationsController < ApplicationController
       params.require(:location).permit(:address, :latitude, :longitude)
     end
 
-  def goog_init
-    @client = GooglePlaces::Client.new(AIzaSyDpPub0LTxbwkY6EAwKd00cbXAiUs-nIKM)
-    @spot = place_search
-  end
 
-  def place_search
-    @spot = @client.spots(@location.latitude, @location.longitude, :types => 'pizza')
-  end
 
 end

@@ -4,12 +4,16 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
+    @location = Location.find_by(latitude: params[:latitude])
+    search_by(@location)
     @places = Place.all
+
   end
 
   # GET /places/1
   # GET /places/1.json
   def show
+
   end
 
   # GET /places/new
@@ -25,7 +29,6 @@ class PlacesController < ApplicationController
   # POST /places.json
   def create
     @place = Place.new(place_params)
-
     respond_to do |format|
       if @place.save
         format.html { redirect_to @place, notice: 'Place was successfully created.' }
@@ -70,5 +73,21 @@ class PlacesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
       params.require(:place).permit(:name, :price, :activity)
+    end
+
+    def search_by(location)
+      #init Google places API
+      @client = GooglePlaces::Client.new("AIzaSyDpPub0LTxbwkY6EAwKd00cbXAiUs-nIKM")
+      #perform search with lat,long and type
+      @spots = @client.spots(location.latitude, location.longitude, :types => ['restaurant', 'pizza'])
+      #sort spots into individual places
+      @places = sort_spots(@spots)
+    end 
+
+    def sort_spots(spots)
+      #for n spots, transfer data into n places
+      @spots.each do |spot|
+        Place.create(name: spot.name)
+      end
     end
 end
