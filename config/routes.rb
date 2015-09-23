@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :places
-  resources :locations
+  resources :places#,      only: [:index, :create, :destroy]
+  resources :locations#,   only: [:new, :create, :destroy]
   get 'places/home'
-  root        'static_pages#home'
+  #root        'static_pages#home'
+  root        'locations#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
