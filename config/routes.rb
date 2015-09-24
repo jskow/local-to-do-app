@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :places#,      only: [:index, :create, :destroy]
-  resources :locations#,   only: [:new, :create, :destroy]
+  resources :places,      only: [:index, :create, :destroy]
+  resources :locations,   only: [:new, :create, :destroy]
   get 'places/home'
   #root        'static_pages#home'
   root        'locations#new'
