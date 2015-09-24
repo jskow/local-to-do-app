@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :address %><br>
+    <%= f.label 'Where are you,'+<i>'right now'</i>+'?' %><br>
     <%= f.text_field :address %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit Location', :class => 'btn-large btn-success' %>
   </div>
 <% end %>
