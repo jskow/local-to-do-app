@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @activity.name %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @activity.cost %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @activity.gender %>
+</p>
+
+<p>
+  <strong>Group size:</strong>
+  <%= @activity.group_size %>
+</p>
+
+<p>
+  <strong>Type1:</strong>
+  <%= @activity.type1 %>
+</p>
+
+<p>
+  <strong>Type2:</strong>
+  <%= @activity.type2 %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @activity.age %>
+</p>
+
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>

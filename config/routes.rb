@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :activities
   resources :places#,      only: [:index, :create, :destroy]
   resources :locations#,   only: [:new, :create, :destroy]
   get 'places/home'
