@@ -78,6 +78,8 @@ class PlacesController < ApplicationController
     def search_by(location)
       #init Google places API
       @client = GooglePlaces::Client.new("AIzaSyDpPub0LTxbwkY6EAwKd00cbXAiUs-nIKM")
+      #find what to search for based on reqs
+
       #perform search with lat,long and type
       @spots = @client.spots(location.latitude, location.longitude, :name => 'pizza')
       #sort spots into individual places

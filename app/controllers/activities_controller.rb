@@ -74,7 +74,7 @@ class ActivitiesController < ApplicationController
 
     # Function to sort activities based on given requirements
     def sort_reqs(requirements)
-       
+    #create pre-list data, add through html later
     end
 
 end
