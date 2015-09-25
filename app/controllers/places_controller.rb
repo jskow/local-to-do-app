@@ -4,10 +4,13 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @location = Location.find_by(latitude: params[:latitude])
-    search_by(@location)
-    @places = Place.all
-
+    if params[:latitude] then 
+      @location = Location.find_by(latitude: params[:latitude])
+      search_by(@location)
+      @places = Place.all
+    else
+      redirect_to root_url
+    end
   end
 
   # GET /places/1
@@ -92,4 +95,5 @@ class PlacesController < ApplicationController
         Place.create(name: spot.name)
       end
     end
+
 end
