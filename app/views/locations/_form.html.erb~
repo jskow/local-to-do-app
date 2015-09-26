@@ -15,10 +15,10 @@
     <%= f.label 'Where are you,'+' right now'+'?' %><br>
     <%= f.text_field :address %> <br>
 
-    <%= f.label '$$$?' %> <br>
+    <%= f.label 'Money?' %> <br>
     <%= radio_button_tag(:cost, "free") %>
     <%= label_tag("Free!") %>
-    <%= radio_button_tag(:cost, "a few dollars") %>
+    <%= radio_button_tag(:cost, "mid") %>
     <%= label_tag("a few dollars!") %>
     <%= radio_button_tag(:cost, "a lotta dollars") %>
     <%= label_tag("a lotta dollars!") %> <br>

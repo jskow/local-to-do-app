@@ -82,9 +82,9 @@ class PlacesController < ApplicationController
       #init Google places API
       @client = GooglePlaces::Client.new("AIzaSyDpPub0LTxbwkY6EAwKd00cbXAiUs-nIKM")
       #find what to search for based on reqs
-
+      @activity = sort_reqs(location)
       #perform search with lat,long and type
-      @spots = @client.spots(location.latitude, location.longitude, :name => 'pizza')
+      @spots = @client.spots(location.latitude, location.longitude, :name => @activity.name)
       #sort spots into individual places
       @places = sort_spots(@spots)
     end 
@@ -96,4 +96,9 @@ class PlacesController < ApplicationController
       end
     end
 
+    def sort_reqs(location)
+      #sort by money, group size, age, social and over 21
+      @activities = Activity.find_by(cost: location.cost )
+      return @activities.first
+    end
 end

@@ -1,10 +1,10 @@
 class AddRequirementsToLocation < ActiveRecord::Migration
   def change
-    add_index :activities, :cost, unique: false
-    add_index :activities, :gender, unique: false
-    add_index :activities, :group_size, unique: false
-    add_index :activities, :type1, unique: false
-    add_index :activities, :type2, unique: false
-    add_index :activities, :age, unique: false
+    add_index :locations, :cost, unique: false
+    add_index :locations, :gender, unique: false
+    add_index :locations, :group_size, unique: false
+    add_index :locations, :type1, unique: false
+    add_index :locations, :type2, unique: false
+    add_index :locations, :age, unique: false
   end
 end
