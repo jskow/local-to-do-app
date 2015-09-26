@@ -1,5 +1,5 @@
 
-  <h1>Bored?</h1>
+  <h1><b>Bored?<b></h1>
   <br></br>
   <br></br>
   <%= render 'form' %>

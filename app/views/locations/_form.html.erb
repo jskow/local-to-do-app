@@ -13,7 +13,36 @@
 
   <div class="field">
     <%= f.label 'Where are you,'+' right now'+'?' %><br>
-    <%= f.text_field :address %>
+    <%= f.text_field :address %> <br>
+
+    <%= f.label 'Money?' %> <br>
+    <%= radio_button_tag(:cost, "free") %>
+    <%= label_tag("Free!") %>
+    <%= radio_button_tag(:cost, "a few dollars") %>
+    <%= label_tag("a few dollars!") %>
+    <%= radio_button_tag(:cost, "a lotta dollars") %>
+    <%= label_tag("a lotta dollars!") %> <br>
+
+    <%= f.label 'How many people?' %> <br>
+    <%= radio_button_tag(:group_size, "small") %>
+    <%= label_tag("A couple") %>
+    <%= radio_button_tag(:group_size, "medium") %>
+    <%= label_tag("More than a couple") %>
+    <%= radio_button_tag(:group_size, "large") %>
+    <%= label_tag("A lot") %> <br>
+
+    <%= f.label 'What ages?' %> <br>
+    <%= radio_button_tag(:age, "family friendly") %>
+    <%= label_tag("Family") %>
+    <%= radio_button_tag(:age, "over 21") %>
+    <%= label_tag("20-30") %>
+    <%= radio_button_tag(:age, "all ages") %>
+    <%= label_tag("Under 20") %> <br> <br>
+
+    <%= check_box_tag(:type1, "social") %>
+    <%= label_tag("Social?") %>
+    <%= check_box_tag(:type2, "over 21") %>
+    <%= label_tag("Over 21?") %> <br>
   </div>
 
   <div class="actions">
