@@ -84,7 +84,7 @@ class PlacesController < ApplicationController
       #sort requirements
       @activity = sort_reqs(location)
       #perform search with lat,long and type
-      @spots = @client.spots(location.latitude, location.longitude, :types => 'restaraunt')
+      @spots = @client.spots(location.latitude, location.longitude, :types => 'restaurant')
       #sort spots into individual places
       @places = sort_spots(@spots)
     end 
