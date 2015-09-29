@@ -81,16 +81,17 @@ class PlacesController < ApplicationController
     def search_by(location)
       #init Google places API
       @client = GooglePlaces::Client.new("AIzaSyDpPub0LTxbwkY6EAwKd00cbXAiUs-nIKM")
-
+      #sort requirements
+      @activity = sort_reqs(location)
       #perform search with lat,long and type
-      @spots = @client.spots(location.latitude, location.longitude, :name => "bowling")
+      @spots = @client.spots(location.latitude, location.longitude, :types => 'restaraunt')
       #sort spots into individual places
       @places = sort_spots(@spots)
     end 
 
     def sort_spots(spots)
       #for n spots, transfer data into n places
-      @spots.each do |spot|
+      spots.each do |spot|
         Place.create(name: spot.name)
       end
     end
