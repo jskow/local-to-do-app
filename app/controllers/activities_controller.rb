@@ -5,11 +5,22 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     @activities = Activity.all
+    if (params[:latitude] && params[:longitude]) then 
+      #take in location with requirement data
+      @location = Location.find_by(latitude: params[:latitude])
+      #use requirement data to sort activities
+      sort_reqs(@location)
+      #put activities into array, show each activity with click
+      #after choosing activity, send to places
+    else
+
+    end
   end
 
   # GET /activities/1
   # GET /activities/1.json
   def show
+
   end
 
   # GET /activities/new
@@ -73,8 +84,19 @@ class ActivitiesController < ApplicationController
     end
 
     # Function to sort activities based on given requirements
-    def sort_reqs(requirements)
-    #create pre-list data, add through html later
+    def sort_reqs(location)
+      #find activities first by cost and group size(mandatory)
+      @activities = Activity.find_by(cost: location.cost, group_size: location.group_size)
+      #if age is provided, sort by age
+      if !location.age.nil? then
+        @activities.sort(age: location.age)
+      else
+        #do nothing
+      end #age check
+      @activities.each do |activity|
+        @act_ids = activity.index
+      end #create index array
+      return @activities
     end
 
 end

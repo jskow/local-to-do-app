@@ -28,8 +28,8 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to places_url(latitude: @location.latitude, longitude: @location.longitude), notice: 'Location was successfully created.' }
-        format.json { redirect_to places_url, status: :created, location: @location }
+        format.html { redirect_to activities_url(latitude: @location.latitude, longitude: @location.longitude), notice: 'Location was successfully created.' }
+        format.json { redirect_to activities_url, status: :created, location: @location }
       else
         format.html { render :new }
         format.json { render json: @location.errors, status: :unprocessable_entity }

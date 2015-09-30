@@ -5,10 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Activity.create!(name:  "Kanye",
-               cost: "https://www.youtube.com/embed/Yd2V68HUlYs",
-               gender: "youtube",
-               group_size: 5,
-               seconds_consume: 0,
-	       times_suggested: 0,
-               genre: "Kanye")
+Activity.create!(name:  "Bowling",
+               cost: "mid",
+               gender: "male",
+               group_size: "medium",
+               type1: 0,
+	       type2: 0,
+               age: "mid")
