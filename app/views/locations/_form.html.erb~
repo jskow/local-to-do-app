@@ -13,8 +13,23 @@
 
   <div class="field">
     <%= f.label 'Where are you,'+' right now'+'?' %><br>
-    <%= f.text_field :address %> <br>
+    <%= f.text_field :address %> <br> 
 
+    <%= f.label 'How much $$$?' %> <br>
+    <%= f.label 'Free' %>
+    <%= f.radio_button :cost, "low" %>
+    <%= f.label 'A bit' %>
+    <%= f.radio_button :cost, "mid" %>
+    <%= f.label 'A lot' %>
+    <%= f.radio_button :cost, "high" %> <br>
+
+    <%= f.label 'How many people?' %> <br>
+    <%= f.label 'A couple' %>
+    <%= f.radio_button :group_size, "low" %>
+    <%= f.label 'A few' %>
+    <%= f.radio_button :group_size, "mid" %>
+    <%= f.label 'A lot' %>
+    <%= f.radio_button :group_size, "high" %> <br>
 
   </div>
 
