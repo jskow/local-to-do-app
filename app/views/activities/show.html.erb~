@@ -36,7 +36,4 @@
 </p>
 
 <%= link_to 'Edit', edit_activity_path(@activity) %> |
-<%= link_to 'Back', activities_path %> |
-<%= @i = @i + 1 %>
-<%= link_to 'Next', activity_path(id: @index[@i]) %>
-<%= link_to 'Yes! This!', places_path(@activity, id: params[:location]) %>
+<%= link_to 'Back', activities_path %> 

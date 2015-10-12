@@ -3,7 +3,7 @@
 
 <h1>Listing Activities</h1>
 
-<%= render @activities %>
+
 <%= will_paginate @activities %>
 <br>
 

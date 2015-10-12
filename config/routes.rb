@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   resources :activities
-  resources :places,      only: [:index, :create, :destroy]
+  resources :places
   resources :locations,   only: [:new, :create, :destroy]
 
-  get 'places/home'
+
+  get 'activities_next' => 'activities#slide'
   #root        'static_pages#home'
   root        'locations#new'
 

@@ -4,23 +4,24 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.all
-    if (params[:latitude] && params[:longitude]) then 
+    if (params[:location]) then 
       #take in location with requirement data
-      @location = Location.find_by(latitude: params[:latitude])
-      #use requirement data to sort activities
-      sort_reqs(@location)
-      #put activities into array, show each activity with click
-      #after choosing activity, send to places
+      @location = Location.find_by(id: params[:location])
+      #use requirement data to determine activities to show
+      #idea - pass index array to view, use that to cycle
+     # @activities = sort_reqs(@location)
+      #@activities.paginate(page: params[:page], per_page: 5)
+       @activities = Activity.where("cost = ? AND group_size = ? AND age = ?", @location.cost, @location.group_size, @location.age).paginate(page: params[:page], per_page: 1)
     else
-
+      redirect_to root_url
     end
+
   end
 
   # GET /activities/1
   # GET /activities/1.json
   def show
-
+    
   end
 
   # GET /activities/new
@@ -72,6 +73,12 @@ class ActivitiesController < ApplicationController
     end
   end
 
+    def slide
+      respond_to do |format|
+        format.js
+      end
+    end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_activity
@@ -84,19 +91,35 @@ class ActivitiesController < ApplicationController
     end
 
     # Function to sort activities based on given requirements
+    #iterating, maybe switch to find next activity each click (or ajax upon load)
+    #or, save index, then take next value from saved index
     def sort_reqs(location)
       #find activities first by cost and group size(mandatory)
-      @activities = Activity.find_by(cost: location.cost, group_size: location.group_size)
-      #if age is provided, sort by age
-      if !location.age.nil? then
-        @activities.sort(age: location.age)
-      else
-        #do nothing
-      end #age check
-      @activities.each do |activity|
-        @act_ids = activity.index
-      end #create index array
-      return @activities
-    end
+      i=0
+      @acts = Activity.where(name: nil)
+      Activity.all.each do |activity|
+        if (activity.cost == location.cost) && (activity.group_size == location.group_size) then
+          #if age is provided, sort by age
+          if !location.age.nil? then
+            if (activity.age == location.age) then 
+            @acts = @acts << activity
+            i = i+1
+            else
+            end #age sort
+          else
+            #do nothing
+          end #age exist?
+        else
+        end #location and group size sort
+      end #find each activity
+        if !@acts.nil? then
+          delete_act = @acts.first
+          @acts.reject!{|act| act == delete_act}
+          return @acts
+        else
+        end
+    end #end def
+
+    
 
 end

@@ -4,9 +4,10 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    if params[:latitude] then 
-      @location = Location.find_by(latitude: params[:latitude])
-      search_by(@location)
+    if params[:activity] && params[:location] then 
+      @location = Location.find_by(id: params[:location])
+      @activity = Activity.find_by(id: params[:activity])
+      search_by(@location, @activity)
       @places = Place.all
     else
       redirect_to root_url
@@ -78,14 +79,12 @@ class PlacesController < ApplicationController
       params.require(:place).permit(:name, :price, :activity)
     end
 
-    def search_by(location)
+    def search_by(location, activity)
       #init Google places API
       @client = GooglePlaces::Client.new("AIzaSyDpPub0LTxbwkY6EAwKd00cbXAiUs-nIKM")
-      #sort requirements
-      @activity = sort_reqs(location)
       #perform search with lat,long and types
       #types found at https://developers.google.com/places/supported_types
-      @spots = @client.spots(location.latitude, location.longitude, :types => @activity.name)
+      @spots = @client.spots(location.latitude, location.longitude, :types => activity.name)
       #sort spots into individual places
       @places = sort_spots(@spots)
     end 

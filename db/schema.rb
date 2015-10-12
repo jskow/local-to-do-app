@@ -15,12 +15,12 @@ ActiveRecord::Schema.define(version: 20150926024907) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name"
-    t.integer  "cost"
+    t.string  "cost"
     t.string   "gender"
     t.string   "group_size"
     t.string   "type1"
     t.string   "type2"
-    t.integer  "age"
+    t.string  "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
