@@ -1,3 +1,5 @@
 <%= activity.name %>
 
+<%= image_tag activity.image_path, size: "640x400", alt: activity.image_alt %>
+
 <%= link_to 'Yes! This one!', places_path(activity: activity.id, location: params[:location]) %> |

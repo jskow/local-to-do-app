@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014053940) do
+ActiveRecord::Schema.define(version: 20151014061607) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name"
@@ -21,8 +21,11 @@ ActiveRecord::Schema.define(version: 20151014053940) do
     t.string   "type1"
     t.string   "type2"
     t.string   "age"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "image_path"
+    t.string   "image_alt"
+    t.string   "search_type"
   end
 
   create_table "locations", force: :cascade do |t|

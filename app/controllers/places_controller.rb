@@ -86,7 +86,7 @@ class PlacesController < ApplicationController
       @client = GooglePlaces::Client.new("AIzaSyDpPub0LTxbwkY6EAwKd00cbXAiUs-nIKM")
       #perform search with lat,long and types
       #types found at https://developers.google.com/places/supported_types
-      @spots = @client.spots(location.latitude, location.longitude, :types => activity.name, :radius => 10000)
+      @spots = @client.spots(location.latitude, location.longitude, :types => activity.search_type, :radius => 10000)
       #sort spots into individual places
       @places = sort_spots(@spots, location, activity)
     end 

@@ -18,16 +18,11 @@ body {
   background: asset_url('confectionary.png') repeat 0 0;
 }
 
-.leftbar {
-  float: left;
-  width: 100px;
-  height: 300px;
-}
+.col-md-8 {
+  h1 {
+    text-align: center;
+  }
 
-.rightbar {
-  float: right;
-  width: 100px;
-  height: 300px;
 }
 
 .main {

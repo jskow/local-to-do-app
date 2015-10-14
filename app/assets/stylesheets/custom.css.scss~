@@ -15,20 +15,10 @@ p, div {
 /* Home dividers */
 body {
   padding-top: 70px;
-  background: asset_url('wild_flowers.png') repeat 0 0;
+  background: asset_url('confectionary.png') repeat 0 0;
 }
 
-.leftbar {
-  float: left;
-  width: 100px;
-  height: 300px;
-}
 
-.rightbar {
-  float: right;
-  width: 100px;
-  height: 300px;
-}
 
 .main {
   margin-top: 80px;
