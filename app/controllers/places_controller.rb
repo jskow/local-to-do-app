@@ -7,10 +7,10 @@ class PlacesController < ApplicationController
     if params[:activity] && params[:location] then 
       @location = Location.find_by(id: params[:location])
       @activity = Activity.find_by(id: params[:activity])
-      if (Place.find_by(id: @location.id).nil?) then
+      if (Place.find_by(search_id: @location.id, activity_id: @activity.id).nil?) then
       search_by(@location, @activity)
       end
-      @places = Place.where("search_id = ?", @location.id).paginate(page: params[:page], per_page: 1)
+      @places = Place.where("search_id = ? AND activity_id = ?", @location.id, @activity.id).paginate(page: params[:page], per_page: 1)
     else
       redirect_to root_url
     end
@@ -88,13 +88,13 @@ class PlacesController < ApplicationController
       #types found at https://developers.google.com/places/supported_types
       @spots = @client.spots(location.latitude, location.longitude, :types => activity.name, :radius => 10000)
       #sort spots into individual places
-      @places = sort_spots(@spots, location)
+      @places = sort_spots(@spots, location, activity)
     end 
 
-    def sort_spots(spots, location)
+    def sort_spots(spots, location, activity)
       #for n spots, transfer data into n places
       spots.each do |spot|
-        Place.create(name: spot.name, search_id: location.id)
+        Place.create(name: spot.name, search_id: location.id, activity_id: activity.id)
       end
     end
 

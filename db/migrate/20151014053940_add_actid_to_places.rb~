@@ -1,0 +1,4 @@
+class AddActidToPlaces < ActiveRecord::Migration
+  def change
+  end
+end
