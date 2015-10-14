@@ -1,0 +1,4 @@
+class AddSearchidToPlaces < ActiveRecord::Migration
+  def change
+  end
+end
