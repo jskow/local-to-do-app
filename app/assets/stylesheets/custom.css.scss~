@@ -43,7 +43,7 @@ body {
     #left_form {
       float: left;
       #free {
-        margin-left: 39px;
+        margin-left: 30px;
       }
       #acouple {
         margin-left: 3px;
