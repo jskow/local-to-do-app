@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Places</h1>
-
+<% if @places.empty? %>
+<p>Please be more specific. </p>
+<% end %>
 <%= render @places %>
 <%= will_paginate @places %>
 <br>

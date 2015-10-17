@@ -15,31 +15,66 @@ p, div {
 /* Home dividers */
 body {
   padding-top: 70px;
-  background: asset_url('confectionary.png') repeat 0 0;
+  background: asset_url('water_look.jpg') repeat 0 0;
+}
+.container {
+  background: asset_url('confectionary2.png') repeat 0 0;
+  background-size: 100%;
+
 }
 
+.col-md-6 {
+  h1 {
+    text-align: center;
+  }
 
+  .new_location {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+  
+    #location_address {
+      width: 80%;
+      margin-bottom: 20px;
+      margin-top: 5px;
+    }
+    #left_form {
+      float: left;
+      #free {
+        margin-left: 39px;
+      }
+      #acouple {
+        margin-left: 3px;
+      }
+    }
+    #right_form {
+      float: right;
+    }
+    #form_options {
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+    }
+    #abit {
+      margin-left: 12px;
+    }
+    #afew {
+      margin-left: 6px;
+    }
+  }
+
+}
+
+.act_card {
+  text-align:center;
+}
 
 .main {
   margin-top: 80px;
 
 }
 
-.new_form {
-  width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  h1 {
-    text-align: center;
-  }
-  .new_location {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-  }
-
-}

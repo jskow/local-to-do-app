@@ -1,9 +1,5 @@
-<% if activity.name.nil? then %>
-  <p> Please try to be more specific with your location. </p>
-<%> else <%>
-  <%= activity.name %>
-<%> end <%>
+<%= activity.name %>
 
-<%= image_tag activity.image_path, size: "640x400", alt: activity.image_alt %>
-
+<%= image_tag activity.image_path, size: "500x320", alt: activity.image_alt %>
+<br>
 <%= link_to 'Yes! This one!', places_path(activity: activity.id, location: params[:location]) %> |

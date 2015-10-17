@@ -2,11 +2,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Activities</h1>
-
+<div class="act_card">
 <%= render @activities %>
 <%= will_paginate @activities %>
+
 <br>
 
-<%= link_to 'New Activity', new_activity_path %>
 
-
+</div>

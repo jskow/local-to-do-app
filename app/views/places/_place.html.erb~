@@ -1,5 +1,5 @@
-<% if place.id? ,then %>
+<% if place.name == "Place"  %>
   <h1> Please try to be more specific with your location. </h1>
-<%> else <%>
+<% else %>
   <%= place.name %>
-<%> end <%>
+<% end %>

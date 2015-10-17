@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-default">
   <div class="container">
 
-    <h1>GoLocal</h1>
+    <h2><%= link_to 'GoLocal', root_path %></h2>
 
 
 
