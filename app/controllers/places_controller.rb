@@ -94,7 +94,7 @@ class PlacesController < ApplicationController
     def sort_spots(spots, location, activity)
       #for n spots, transfer data into n places
       spots.each do |spot|
-        Place.create(name: spot.name, search_id: location.id, activity_id: activity.id)
+        Place.create(name: spot.name, search_id: location.id, activity_id: activity.id, formatted_address: spot.vicinity, rating: spot.rating, url: spot.url)
       end
     end
 

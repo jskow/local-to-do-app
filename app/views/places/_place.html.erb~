@@ -1,5 +1,6 @@
-<% if place.name == "Place"  %>
-  <h1> Please try to be more specific with your location. </h1>
-<% else %>
-  <%= place.name %>
-<% end %>
+  <h3> Name </h3>:
+  <%= place.name %> <br>
+  <h3> Address </h3> 
+  <%= place.formatted_address %> <br>
+  <h3> Rating </h3>
+  <%= place.rating %> <br>
