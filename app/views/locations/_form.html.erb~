@@ -21,15 +21,15 @@
      <span id=free>
     <%= f.label 'None' %>
      </span>
-    <%= f.radio_button :cost, "low" %>
+    <%= f.radio_button :cost, 1 %>
     </span>
     <span id=abit>
     <%= f.label 'A bit' %>
     </span>
-    <%= f.radio_button :cost, "mid" %>
+    <%= f.radio_button :cost, 2 %>
     <span id=right_form>
     <%= f.label 'A lot' %>
-    <%= f.radio_button :cost, "high" %> <br>
+    <%= f.radio_button :cost, 3 %> <br>
     </span>
     <br>
 
@@ -37,28 +37,30 @@
     <span id=left_form>
      <span id=acouple>
     <%= f.label 'A couple' %>
+
      </span>
-    <%= f.radio_button :group_size, "low" %>
+    <%= f.radio_button :group_size, 3 %>
     </span>
     <span id=afew>
     <%= f.label 'A few' %>
     </span>
-    <%= f.radio_button :group_size, "mid" %>
+    <%= f.radio_button :group_size, 2 %>
     <span id=right_form>
     <%= f.label 'A lot' %>
-    <%= f.radio_button :group_size, "high" %> <br>
+    <%= f.radio_button :group_size, 1 %> <br>
     </span><br>
 
     <%= f.label 'What ages?' %> <br>
     <span id=left_form>
     <%= f.label 'Under 21' %>
-    <%= f.radio_button :age, "low" %>
+
+    <%= f.radio_button :age, 2 %>
     </span>
     <%= f.label '21 & up' %>
-    <%= f.radio_button :age, "mid" %>
+    <%= f.radio_button :age, 3 %>
     <span id=right_form>
     <%= f.label 'Family' %>
-    <%= f.radio_button :age, "high" %> <br>
+    <%= f.radio_button :age, 1 %> <br>
     </span>
    </div>
   </div>

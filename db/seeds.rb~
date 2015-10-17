@@ -6,48 +6,89 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Activity.create!(search_type:  "bowling_alley",
-               cost: "mid",
+               cost: 2,
                gender: "male",
-               group_size: "mid",
+               group_size: 2,
                type1: 0,
 	       type2: 0,
+               age: 2,
+               image_path: "bowling.jpg",
+               name: "Bowling")
+<<<<<<< HEAD
+Activity.create!(search_type:  "bowling_alley",
+               cost: "mid",
+=======
+Activity.create!(search_type:  "restaurant",
+               cost: 2,
+>>>>>>> change_db_to_ints
+               gender: "male",
+               group_size: 2,
+               type1: 0,
+	       type2: 0,
+<<<<<<< HEAD
                age: "mid",
                image_path: "bowling.jpg",
                name: "Bowling")
-Activity.create!(search_type:  "restaurant",
-               cost: "mid",
-               gender: "male",
-               group_size: "mid",
-               type1: 0,
-	       type2: 0,
-               age: "mid",
-               name: "Restaurant")
-Activity.create!(search_type:  "park",
-               cost: "mid",
-               gender: "male",
-               group_size: "mid",
-               type1: 0,
-	       type2: 0,
-               age: "mid")
 Activity.create!(search_type:  "bowling_alley",
                cost: "mid",
-               gender: "male",
-               group_size: "mid",
-               type1: 0,
-	       type2: 0,
-               age: "mid")
-Activity.create!(search_type:  "restaurant",
-               cost: "mid",
-               gender: "male",
-               group_size: "mid",
-               type1: 0,
-	       type2: 0,
-               age: "mid")
+=======
+               age: 2,
+               name: "Restaurant")
 Activity.create!(search_type:  "park",
-               cost: "mid",
+               cost: 2,
+>>>>>>> change_db_to_ints
                gender: "male",
-               group_size: "mid",
+               group_size: 2,
                type1: 0,
 	       type2: 0,
-               age: "mid")
+<<<<<<< HEAD
+               age: "mid",
+               image_path: "bowling.jpg",
+               name: "Bowling")
+=======
+               age: 2)
+>>>>>>> change_db_to_ints
+Activity.create!(search_type:  "bowling_alley",
+               cost: 1,
+               gender: "male",
+               group_size: 1,
+               type1: 0,
+	       type2: 0,
+<<<<<<< HEAD
+               age: "mid",
+               image_path: "bowling.jpg",
+               name: "Bowling")
+Activity.create!(search_type:  "bowling_alley",
+               cost: "mid",
+=======
+               age: 1)
+Activity.create!(search_type:  "restaurant",
+               cost: 1,
+>>>>>>> change_db_to_ints
+               gender: "male",
+               group_size: 1,
+               type1: 0,
+	       type2: 0,
+<<<<<<< HEAD
+               age: "mid",
+               image_path: "bowling.jpg",
+               name: "Bowling")
+Activity.create!(search_type:  "bowling_alley",
+               cost: "mid",
+=======
+               age: 1)
+Activity.create!(search_type:  "park",
+               cost: 2,
+>>>>>>> change_db_to_ints
+               gender: "male",
+               group_size: 2,
+               type1: 0,
+	       type2: 0,
+<<<<<<< HEAD
+               age: "mid",
+               image_path: "bowling.jpg",
+               name: "Bowling")
+=======
+               age: 2)
 
+>>>>>>> change_db_to_ints
