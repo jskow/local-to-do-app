@@ -17,27 +17,27 @@
 
     <%= f.label 'How much $$$?' %> <br>
     <%= f.label 'Free' %>
-    <%= f.radio_button :cost, "low" %>
+    <%= f.radio_button :cost, 1 %>
     <%= f.label 'A bit' %>
-    <%= f.radio_button :cost, "mid" %>
+    <%= f.radio_button :cost, 2 %>
     <%= f.label 'A lot' %>
-    <%= f.radio_button :cost, "high" %> <br>
+    <%= f.radio_button :cost, 3 %> <br>
 
     <%= f.label 'How many people?' %> <br>
     <%= f.label 'A couple' %>
-    <%= f.radio_button :group_size, "low" %>
+    <%= f.radio_button :group_size, 1 %>
     <%= f.label 'A few' %>
-    <%= f.radio_button :group_size, "mid" %>
+    <%= f.radio_button :group_size, 2 %>
     <%= f.label 'A lot' %>
-    <%= f.radio_button :group_size, "high" %> <br>
+    <%= f.radio_button :group_size, 3 %> <br>
 
     <%= f.label 'What ages?' %> <br>
     <%= f.label 'Under 21' %>
-    <%= f.radio_button :age, "low" %>
+    <%= f.radio_button :age, 2 %>
     <%= f.label '21 & up' %>
-    <%= f.radio_button :age, "mid" %>
+    <%= f.radio_button :age, 3 %>
     <%= f.label 'Family' %>
-    <%= f.radio_button :age, "high" %> <br>
+    <%= f.radio_button :age, 1 %> <br>
   </div>
 
   <div class="actions">

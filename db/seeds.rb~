@@ -6,46 +6,48 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Activity.create!(search_type:  "bowling_alley",
-               cost: "mid",
+               cost: 2,
                gender: "male",
-               group_size: "mid",
+               group_size: 2,
                type1: 0,
 	       type2: 0,
-               age: "mid",
-               image_path: "bowling.jpg")
+               age: 2,
+               image_path: "bowling.jpg",
+               name: "Bowling")
 Activity.create!(search_type:  "restaurant",
-               cost: "mid",
+               cost: 2,
                gender: "male",
-               group_size: "mid",
+               group_size: 2,
                type1: 0,
 	       type2: 0,
-               age: "mid")
+               age: 2,
+               name: "Restaurant")
 Activity.create!(search_type:  "park",
-               cost: "mid",
+               cost: 2,
                gender: "male",
-               group_size: "mid",
+               group_size: 2,
                type1: 0,
 	       type2: 0,
-               age: "mid")
+               age: 2)
 Activity.create!(search_type:  "bowling_alley",
-               cost: "mid",
+               cost: 2,
                gender: "male",
-               group_size: "mid",
+               group_size: 2,
                type1: 0,
 	       type2: 0,
-               age: "mid")
+               age: 2)
 Activity.create!(search_type:  "restaurant",
-               cost: "mid",
+               cost: 2,
                gender: "male",
-               group_size: "mid",
+               group_size: 2,
                type1: 0,
 	       type2: 0,
-               age: "mid")
+               age: 2)
 Activity.create!(search_type:  "park",
-               cost: "mid",
+               cost: 2,
                gender: "male",
-               group_size: "mid",
+               group_size: 2,
                type1: 0,
 	       type2: 0,
-               age: "mid")
+               age: 2)
 
