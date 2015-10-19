@@ -13,55 +13,41 @@
 
   <div class="field">
     <%= f.label 'Where are you,'+' right now'+'?' %><br>
-    <%= f.text_field :address %> <br> 
+    <%= f.text_field :address %> <br> <br>
 
    <div id=form_options>
     <%= f.label 'How much money are you willing to spend?' %> <br>
-    <span id=left_form>
-     <span id=free>
-    <%= f.label 'None' %>
-     </span>
-    <%= f.radio_button :cost, 1 %>
-    </span>
-    <span id=abit>
-    <%= f.label 'A bit' %>
-    </span>
-    <%= f.radio_button :cost, 2 %>
-    <span id=right_form>
-    <%= f.label 'A lot' %>
-    <%= f.radio_button :cost, 3 %> <br>
-    </span>
-    <br>
+     <div class="col-xs-3">
+     <p> None </p>
+     </div>
+     <div class="col-xs-6">
+     <%= f.range_field :cost, :min=>1, :max=>3, :class=>"slide" %>
+     </div>
+     <div class="col-xs-3">
+     <p> A lot </p>
+     </div> <br>
 
     <%= f.label 'How many people are with you?' %> <br>
-    <span id=left_form>
-     <span id=acouple>
-    <%= f.label 'A couple' %>
-
-     </span>
-    <%= f.radio_button :group_size, 3 %>
-    </span>
-    <span id=afew>
-    <%= f.label 'A few' %>
-    </span>
-    <%= f.radio_button :group_size, 2 %>
-    <span id=right_form>
-    <%= f.label 'A lot' %>
-    <%= f.radio_button :group_size, 1 %> <br>
-    </span><br>
+     <div class="col-xs-3">
+     <p> A lot </p>
+     </div>
+     <div class="col-xs-6">
+     <%= f.range_field :group_size, :min=>1, :max=>3, :class=>"slide" %>
+     </div>
+     <div class="col-xs-3">
+     <p> A couple </p>
+     </div> <br>
 
     <%= f.label 'What ages?' %> <br>
-    <span id=left_form>
-    <%= f.label 'Under 21' %>
-
-    <%= f.radio_button :age, 2 %>
-    </span>
-    <%= f.label '21 & up' %>
-    <%= f.radio_button :age, 3 %>
-    <span id=right_form>
-    <%= f.label 'Family' %>
-    <%= f.radio_button :age, 1 %> <br>
-    </span>
+     <div class="col-xs-3">
+     <p> Family friendly</p>
+     </div>
+     <div class="col-xs-6">
+     <%= f.range_field :age, :min=>1, :max=>3, :class=>"slide" %>
+     </div>
+     <div class="col-xs-3">
+     <p> 21 </p>
+     </div> <br>
    </div>
   </div>
 
