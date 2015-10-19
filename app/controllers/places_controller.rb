@@ -10,7 +10,7 @@ class PlacesController < ApplicationController
       if (Place.find_by(search_id: @location.id, activity_id: @activity.id).nil?) then
       search_by(@location, @activity)
       end
-      @places = Place.where("search_id = ? AND activity_id = ?", @location.id, @activity.id).paginate(page: params[:page], per_page: 1)
+      @places = Place.where("search_id = ? AND activity_id = ?", @location.id, @activity.id).order("rating DESC").paginate(page: params[:page], per_page: 1)
     else
       redirect_to root_url
     end

@@ -10,7 +10,7 @@ class PlacesController < ApplicationController
       if (Place.find_by(search_id: @location.id, activity_id: @activity.id).nil?) then
       search_by(@location, @activity)
       end
-      @places = Place.where("search_id = ? AND activity_id = ?", @location.id, @activity.id).paginate(page: params[:page], per_page: 1)
+      @places = Place.where("search_id = ? AND activity_id = ?", @location.id, @activity.id).order("image_alt DESC").paginate(page: params[:page], per_page: 1)
     else
       redirect_to root_url
     end
@@ -94,7 +94,7 @@ class PlacesController < ApplicationController
     def sort_spots(spots, location, activity)
       #for n spots, transfer data into n places
       spots.each do |spot|
-        Place.create(name: spot.name, search_id: location.id, activity_id: activity.id, formatted_address: spot.formatted_address, rating: spot.rating, url: spot.url)
+        Place.create(name: spot.name, search_id: location.id, activity_id: activity.id, formatted_address: spot.vicinity, rating: spot.rating, url: spot.url)
       end
     end
 

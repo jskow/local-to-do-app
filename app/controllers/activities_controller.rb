@@ -11,7 +11,7 @@ class ActivitiesController < ApplicationController
       #idea - pass index array to view, use that to cycle
      # @activities = sort_reqs(@location)
       #@activities.paginate(page: params[:page], per_page: 5)
-       @activities = Activity.where("cost <= ? AND group_size <= ? AND age <= ?", @location.cost, @location.group_size, @location.age).order("RANDOM()").paginate(page: params[:page], per_page: 1)
+       @activities = Activity.where("cost <= ? AND group_size <= ? AND age <= ?", @location.cost, @location.group_size, @location.age).order("image_alt DESC").paginate(page: params[:page], per_page: 1)
     else
       redirect_to root_url
     end
