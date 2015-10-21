@@ -4,7 +4,7 @@
 <h1>Listing Activities</h1>
 <div class="act_card">
 <%= render @activities %>
-<%= will_paginate @activities %>
+<%= will_paginate @activities, :page_links => false%>
 
 <br>
 

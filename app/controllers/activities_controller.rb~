@@ -4,9 +4,10 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    if (params[:location]) then 
+    if (cookies[:location_id]) then 
       #take in location with requirement data
-      @location = Location.find_by(id: params[:location])
+      loc_id = cookies[:location_id].to_i
+      @location = Location.find_by(id: loc_id)
       #use requirement data to determine activities to show
       #idea - pass index array to view, use that to cycle
      # @activities = sort_reqs(@location)

@@ -1,5 +1,7 @@
 <%= activity.name %>
 <br>
 <%= image_tag activity.image_path, size: "500x320", alt: activity.image_alt %>
-<br>
-<%= link_to 'Yes! This one!', places_path(activity: activity.id, location: params[:location]) %> |
+<br> <br>
+<%= link_to 'Yes! This one!', places_path %> <br>
+<% cookies[:activity_id] = { value: activity.id.to_s, expires: 1.hour.from_now } %>
+

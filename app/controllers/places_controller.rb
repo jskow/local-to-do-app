@@ -4,9 +4,11 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    if params[:activity] && params[:location] then 
-      @location = Location.find_by(id: params[:location])
-      @activity = Activity.find_by(id: params[:activity])
+    if cookies[:activity_id] && cookies[:location_id] then
+      loc_id = cookies[:location_id].to_i
+      act_id = cookies[:activity_id].to_i 
+      @location = Location.find_by(id: loc_id)
+      @activity = Activity.find_by(id: act_id)
       if (Place.find_by(search_id: @location.id, activity_id: @activity.id).nil?) then
       search_by(@location, @activity)
       end

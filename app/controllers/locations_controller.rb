@@ -25,10 +25,13 @@ class LocationsController < ApplicationController
   # POST /locations.json
   def create
     @location = Location.new(location_params)
-
+    if cookies[:activity_id] && cookies[:location_id] then
+      delete_cookies
+    end
     respond_to do |format|
       if @location.save
-        format.html { redirect_to activities_url(location: @location.id), notice: 'Location was successfully created.' }
+        cookies[:location_id] = { value: @location.id.to_s, expires: 1.hour.from_now }
+        format.html { redirect_to activities_url, notice: 'Location was successfully created.' }
         format.json { redirect_to activities_url, status: :created, location: @location }
       else
         format.html { render :new }
@@ -73,6 +76,9 @@ class LocationsController < ApplicationController
       :type1, :type2, :age)
     end
 
-
+    def delete_cookies
+      cookies.delete(:location_id, domain: :all)
+      cookies.delete(:activity_id, domain: :all)
+    end
 
 end
