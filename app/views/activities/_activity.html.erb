@@ -1,9 +1,3 @@
-<%= activity.name %>
-<br>
-<%= image_tag activity.image_path, size: "500x320", alt: activity.image_alt %>
-<br> <br>
-<%= link_to 'Yes! This one!', places_path %> <br>
-<% cookies[:activity_id] = { value: activity.id.to_s, expires: 1.hour.from_now } %>
 
 <!--Find next and prev index, create buttons to go to those pages --!>
 <!--Clicking next or prev stores page in current page cookie --!>
@@ -16,9 +10,31 @@
 <% prev_index = next_index - 2 %>
 <% end %>
 <% prev_page = act_hash[prev_index.to_s] %>
-<%= link_to "NEXT!!!", activities_path(page: next_page) %>
 
 <%##know next index, becaus hash of current page points to current index%>
 <%##previous button points to previous index in hash %>
 <%##clicking button will update cookies... AJAX?? %>
+
+
+
+<div class="prev_button col-md-2">
+<button type="button" class="btn btn-dfault btn-lnk">
+<%= link_to "PREVIOUS!!!", activities_path(page: prev_page) %>
+</button>
+</div>
+<div class="act_card col-md-8">
+
+<%= activity.name %>
+<br>
+<%= image_tag activity.image_path, size: "500x320", alt: activity.image_alt %>
+<br> <br>
+<%= link_to 'Yes! This one!', places_path %> <br>
+<% cookies[:activity_id] = { value: activity.id.to_s, expires: 1.hour.from_now } %>
+
+</div>
+<div class="next_button col-md-2">
+<button type="button" class="btn btn-dfault">
+<%= link_to "NEXT!!!", activities_path(page: next_page) %>
+</button>
+</div>
 
