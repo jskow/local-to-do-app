@@ -1,0 +1,21 @@
+class Activity < ActiveRecord::Base
+
+    def self.randomize(cookie_id)
+       rand_gen = Random.new(cookie_id.to_i)
+       #choose a seed number
+       #shuffle array 0 to n elements
+       n = self.length
+       i = n-1
+       until i == 1 do
+         #choose random number j 0<=j<=i
+         j = random_num(i,rand_gen)
+         first = self[j]
+         second = self[i]
+         self[j] = second
+         self[i] = first
+         i-=1
+       end
+      self
+    end
+
+end

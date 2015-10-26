@@ -6,13 +6,35 @@ class ActivitiesController < ApplicationController
   def index
     if (cookies[:location_id]) then 
       #take in location with requirement data
+
+      #use requirement data to determine activities to show
+      #@activities = Activity.where("cost <= ? AND group_size <= ? AND age <= ?", @location.cost, @location.group_size, @location.age).order("image_alt DESC").paginate(page: params[:page], per_page: 1)
+      #byebug
+
+      #create index of the activities chosen
+      #byebug
+      #delete_cookies
+      if cookies[:act_hash] then
+        #find current page, and move to next
+        #this should only load on first call? then delete cookie?
+      else
+        #if no index, then find it and define initial page
+        #byebug
+        @activities = Activity.where("cost <= ? AND group_size <= ? AND age <= ?", @location.cost, @location.group_size, @location.age)
+        act_hash = find_act_hash(@activities)
+        cookies[:current_page] = act_hash[0]
+        cookies[:next_page] = act_hash[1]
+      end
+      #create cookie with index
+      #create link to go to next page based on cookie
+      #TEST
+      if (params[:page]) then
+        cookies[:current_page] = page
+      end
       loc_id = cookies[:location_id].to_i
       @location = Location.find_by(id: loc_id)
-      #use requirement data to determine activities to show
-      #idea - pass index array to view, use that to cycle
-     # @activities = sort_reqs(@location)
-      #@activities.paginate(page: params[:page], per_page: 5)
-       @activities = Activity.where("cost <= ? AND group_size <= ? AND age <= ?", @location.cost, @location.group_size, @location.age).order("image_alt DESC").paginate(page: params[:page], per_page: 1)
+      @activities = Activity.where("cost <= ? AND group_size <= ? AND age <= ?", @location.cost, @location.group_size, @location.age).paginate(page: cookies[:current_page].to_i, per_page: 1)
+
     else
       redirect_to root_url
     end
@@ -91,36 +113,46 @@ class ActivitiesController < ApplicationController
       params.require(:activity).permit(:name, :cost, :gender, :group_size, :type1, :type2, :age)
     end
 
-    # Function to sort activities based on given requirements
-    #iterating, maybe switch to find next activity each click (or ajax upon load)
-    #or, save index, then take next value from saved index
-    def sort_reqs(location)
-      #find activities first by cost and group size(mandatory)
-      i=0
-      @acts = Activity.where(name: nil)
-      Activity.all.each do |activity|
-        if (activity.cost == location.cost) && (activity.group_size == location.group_size) then
-          #if age is provided, sort by age
-          if !location.age.nil? then
-            if (activity.age == location.age) then 
-            @acts = @acts << activity
-            i = i+1
-            else
-            end #age sort
-          else
-            #do nothing
-          end #age exist?
-        else
-        end #location and group size sort
-      end #find each activity
-        if !@acts.nil? then
-          delete_act = @acts.first
-          @acts.reject!{|act| act == delete_act}
-          return @acts
-        else
-        end
-    end #end def
-
+    def randomize(activities)
+       #shuffle array 0 to n elements
+       n = activities.length
+       act_index = [*1..n]
+       i = n-1
+       
+       until i == 1 do
+         #choose random number j 0<=j<=i
+         j = rand(i)
+         first = act_index[j]
+         second = act_index[i]
+         act_index[j] = second
+         act_index[i] = first
+         i-=1
+       end
+      return act_index
+    end
     
+    #get array of activity indicies
+    #need a hash of index/page and id
+    def find_act_hash(activities)
+      #randomize method needs work b/c activities is limited sample (?)
+      #byebug
+      act_index = randomize(activities)
+      act_hash = { } 
+      i = 0
+      activities.each do |activity|
+      #can't use ID, need to use index in activities
+        act_hash[i] = act_index[i].to_s
+        i+=1
+      end
+     
+      cookies[:act_hash] = JSON.generate(act_hash)
+      return act_hash
+    end
+
+    def delete_cookies
+      cookies.delete(:act_hash, domain: :all)
+      cookies.delete(:current_page, domain: :all)
+      cookies.delete(:next_page, domain: :all)
+    end
 
 end

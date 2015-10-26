@@ -1,0 +1,21 @@
+class ActiveRecord_Relation
+
+    def randomize(activities)
+       rand_gen = Random.new(cookies[:location_id].to_i)
+       #choose a seed number
+       #shuffle array 0 to n elements
+       n = activities.length
+       i = n-1
+       until i == 1 do
+         #choose random number j 0<=j<=i
+         j = random_num(i,rand_gen)
+         first = activities[j]
+         second = activities[i]
+         activities[j] = second
+         activities[i] = first
+         i-=1
+       end
+      self
+    end
+
+end

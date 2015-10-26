@@ -1,10 +1,14 @@
 
 <p id="notice"><%= notice %></p>
-<%= will_paginate @activities, :page_links => false%>
+
 <h1>Listing Activities</h1>
 <div class="act_card">
-<%= render @activities %>
 
+<% current_page = cookies[:current_page].to_i %>
+<% @activities.test %>
+<%= render @activities%>
+
+<%= will_paginate @activities, :page_links => false, :page =>current_page %>
 
 <br>
 

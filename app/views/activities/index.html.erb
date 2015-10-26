@@ -3,8 +3,11 @@
 
 <h1>Listing Activities</h1>
 <div class="act_card">
-<%= render @activities %>
-<%= will_paginate @activities, :page_links => false%>
+
+<% current_page = cookies[:current_page].to_i %>
+<%= render @activities%>
+
+<%= will_paginate @activities, :page_links => false, :page =>current_page %>
 
 <br>
 

@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  resources :activities
-  resources :places
-  resources :locations,   only: [:new, :create, :destroy]
+  resources :activities,  only: [:index, :create]
+  resources :places,      only: [:index, :create]
+  resources :locations,   only: [:new, :create]
 
-
-  get 'activities_next' => 'activities#slide'
   #root        'static_pages#home'
   root        'locations#new'
+  get 'activities' =>     'activities#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
