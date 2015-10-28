@@ -6,14 +6,22 @@ class ActivitiesController < ApplicationController
   def index
     if (cookies[:location_id]) then 
       #take in location with requirement data
-
+      loc_id = cookies[:location_id].to_i
+      @location = Location.find_by(id: loc_id)
       #use requirement data to determine activities to show
       #@activities = Activity.where("cost <= ? AND group_size <= ? AND age <= ?", @location.cost, @location.group_size, @location.age).order("image_alt DESC").paginate(page: params[:page], per_page: 1)
       #byebug
+      #check if cookies need to be deleted
+      if cookies[:act_hash] then
+        act_hash_loc_check = JSON.parse(cookies[:act_hash])
+        if act_hash_loc_check["loc_id"] == cookies[:location_id] then
+          delete_cookies
+        end
+      end
 
       #create index of the activities chosen
       #byebug
-      #delete_cookies
+      #check whether or not to create the hash
       if cookies[:act_hash] then
         #find current page, and move to next
         #this should only load on first call? then delete cookie?
@@ -31,8 +39,6 @@ class ActivitiesController < ApplicationController
       if (params[:page]) then
         cookies[:current_page] = params[:page]
       end
-      loc_id = cookies[:location_id].to_i
-      @location = Location.find_by(id: loc_id)
       @activities = Activity.where("cost <= ? AND group_size <= ? AND age <= ?", @location.cost, @location.group_size, @location.age).paginate(page: cookies[:current_page].to_i, per_page: 1)
 
     else
@@ -134,7 +140,6 @@ class ActivitiesController < ApplicationController
     #get array of activity indicies
     #need a hash of index/page and id
     def find_act_hash(activities)
-      #randomize method needs work b/c activities is limited sample (?)
       #byebug
       act_index = randomize(activities)
       act_hash = { } 
@@ -144,7 +149,7 @@ class ActivitiesController < ApplicationController
         act_hash[i] = act_index[i].to_s
         i+=1
       end
-     
+      act_hash["loc_id"] = cookies[:location_id]
       cookies[:act_hash] = JSON.generate(act_hash)
       return act_hash
     end

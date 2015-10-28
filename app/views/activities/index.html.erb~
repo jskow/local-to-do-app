@@ -1,9 +1,7 @@
 
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Activities</h1>
-<br>
-<br>
+
+
 
 <% current_page = cookies[:current_page].to_i %>
 <%= render @activities%>

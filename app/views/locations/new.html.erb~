@@ -1,7 +1,8 @@
 
-  <h1><b>Bored?<b></h1>
-  <br></br>
-  <br></br>
+  <h1><b>Want to get out?<b></h1>
+  <br>
+  <br>
+
   <%= render 'form' %>
 
 

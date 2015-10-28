@@ -1,6 +1,6 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Places</h1>
+<h2><%= link_to 'GoLocal', root_path %></h2>
+
 <% if @places.empty? %>
 <p>Please be more specific. </p>
 <% end %>
