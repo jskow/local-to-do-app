@@ -24,8 +24,10 @@ body {
 }
 
 .col-md-6 {
-  h1 {
+  h2 {
     text-align: center;
+    padding-bottom: 20%;
+    padding-top: 10%;
   }
 
   .new_location {
@@ -62,7 +64,7 @@ body {
       right: 0;
     }
     #location_age {
-      width: 50%;
+      width: 70%;
       margin-left: auto;
       margin-right: auto;
       left: 0;
@@ -80,6 +82,9 @@ body {
         margin-right: 5px;
         margin-left: 5px;
       }
+    }
+    .act_submit {
+      padding-top: 20%;
     }
   }
 

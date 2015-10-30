@@ -10,7 +10,6 @@
 <% prev_index = next_index - 2 %>
 <% end %>
 <% prev_page = act_hash[prev_index.to_s] %>
-<%= link_to "NEXT!!!", activities_path(page: next_page) %>
 
 <%##know next index, becaus hash of current page points to current index%>
 <%##previous button points to previous index in hash %>
@@ -19,9 +18,9 @@
 
 
 <div class="prev_button col-md-2">
-<button type="button" class="btn btn-dfault btn-lnk">
-<%= link_to "PREVIOUS!!!", activities_path(page: prev_page) %>
-</button>
+
+<%= link_to "PREVIOUS!!!", activities_path(page: prev_page), :class=>"btn btn-default" %>
+
 </div>
 <div class="act_card col-md-8">
 
@@ -29,13 +28,15 @@
 <br>
 <%= image_tag activity.image_path, size: "500x320", alt: activity.image_alt %>
 <br> <br>
-<%= link_to 'Yes! This one!', places_path %> <br>
+<%= link_to 'Yes! This one!', places_path, :class=>"btn btn-default act-submit" %> <br>
 <% cookies[:activity_id] = { value: activity.id.to_s, expires: 1.hour.from_now } %>
 
 </div>
 <div class="next_button col-md-2">
-<button type="button" class="btn btn-dfault">
-<%= link_to "NEXT!!!", activities_path(page: next_page) %>
+<%= link_to "NEXT!!!", activities_path(page: next_page), :class=>"btn btn-default" %>
+<span id="glyphicon glyphicon-chevron-right"></span>
+<button type="button" class="btn btn-default" aria-label="Left Align">
+  <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
 </button>
 </div>
 

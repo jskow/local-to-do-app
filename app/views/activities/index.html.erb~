@@ -1,7 +1,7 @@
 
 
 
-
+<h2>Activity</h2>
 
 <% current_page = cookies[:current_page].to_i %>
 <%= render @activities%>
