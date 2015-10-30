@@ -28,8 +28,11 @@
 <br>
 <%= image_tag activity.image_path, size: "500x320", alt: activity.image_alt %>
 <br> <br>
+
+<div class="act_submit">
 <%= link_to 'Yes! This one!', places_path, :class=>"btn btn-default act-submit" %> <br>
 <% cookies[:activity_id] = { value: activity.id.to_s, expires: 1.hour.from_now } %>
+</div>
 
 </div>
 <div class="next_button col-md-2">

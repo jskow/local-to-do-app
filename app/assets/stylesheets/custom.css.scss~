@@ -29,6 +29,10 @@ body {
     padding-bottom: 20%;
     padding-top: 10%;
   }
+  h1 {
+    text-align: center;
+   
+  }
 
   .new_location {
     text-align: center;
@@ -90,12 +94,22 @@ body {
 
 }
 
+.act_submit {
+  padding-top: 20%;
+}
+
+.col-md-8 {
+  padding-bottom: 20%;
+}
+
 .act_card {
   text-align:center;
 }
 
 .main {
   margin-top: 80px;
-
 }
 
+#notice {
+  text-align: center;
+}
