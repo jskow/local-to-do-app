@@ -25,7 +25,9 @@ class LocationsController < ApplicationController
   # POST /locations.json
   def create
     @location = Location.new(location_params)
-    delete_cookies
+    if cookies[:activity_id] && cookies[:location_id] then
+      delete_cookies
+    end
     respond_to do |format|
       if @location.save
         cookies[:location_id] = { value: @location.id.to_s, expires: 1.hour.from_now }

@@ -12,9 +12,10 @@ class ActivitiesController < ApplicationController
       #@activities = Activity.where("cost <= ? AND group_size <= ? AND age <= ?", @location.cost, @location.group_size, @location.age).order("image_alt DESC").paginate(page: params[:page], per_page: 1)
       #byebug
       #check if cookies need to be deleted
+    
       if cookies[:act_hash] then
         act_hash_loc_check = JSON.parse(cookies[:act_hash])
-        if act_hash_loc_check["loc_id"] == cookies[:location_id] then
+        if act_hash_loc_check["loc_id"] != cookies[:location_id] then
           delete_cookies
         end
       end

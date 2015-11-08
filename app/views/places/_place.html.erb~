@@ -1,6 +1,6 @@
   <h3> Name </h3>
-  <%= place.name %> <br>
+  <%= place.name %> 
   <h3> Address </h3> 
-  <%= place.formatted_address %> <br>
+  <%= place.formatted_address %> 
   <h3> Rating </h3>
-  <%= place.rating %> <br>
+  <%= place.rating %> 

@@ -1,7 +1,6 @@
+<p id="notice"><%= notice %></p>
+  <h4><b>Want to go do something?<b></h4>
 
-  <h1><b>Want to go do something?<b></h1>
-  <br>
-  <br>
 
   <%= render 'form' %>
 

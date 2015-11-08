@@ -31,7 +31,7 @@ class LocationsController < ApplicationController
     respond_to do |format|
       if @location.save
         cookies[:location_id] = { value: @location.id.to_s, expires: 1.hour.from_now }
-        format.html { redirect_to activities_url, notice: 'Location was successfully created.' }
+        format.html { redirect_to activities_url }
         format.json { redirect_to activities_url, status: :created, location: @location }
       else
         format.html { render :new }

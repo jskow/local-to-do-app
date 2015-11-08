@@ -1,4 +1,6 @@
+<h2> <%=activity.name %> </h2>
 
+<div class="act-card">
 <!--Find next and prev index, create buttons to go to those pages --!>
 <!--Clicking next or prev stores page in current page cookie --!>
 
@@ -19,23 +21,23 @@
 
 <div class="prev_button col-md-2">
 
-<%= link_to "PREVIOUS!!!", activities_path(page: prev_page), :class=>"btn btn-default" %>
+<%= link_to "", activities_path(page: prev_page), :class=>"glyphicon glyphicon-chevron-left" %>
 
 </div>
 <div class="act_card col-md-8">
 
-<%= activity.name %>
-<br>
-<%= image_tag activity.image_path, size: "500x320", alt: activity.image_alt %>
+<%= image_tag activity.image_path, size: "250x160", alt: activity.image_alt %>
 <br> <br>
 
 <div class="act_submit">
-<%= link_to 'Yes! This one!', places_path, :class=>"btn btn-default act-submit" %> <br>
+<%= link_to 'Yes! This one!', places_path, :class=>"btn btn-default act-submit btn-info" %> <br>
 <% cookies[:activity_id] = { value: activity.id.to_s, expires: 1.hour.from_now } %>
 </div>
 
 </div>
 <div class="next_button col-md-2">
-<%= link_to "NEXT!!!", activities_path(page: next_page), :class=>"btn btn-default" %>
+<%= link_to "", activities_path(page: next_page), :class=>"glyphicon glyphicon-chevron-right" %>
+</div>
+
 </div>
 

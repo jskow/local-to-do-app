@@ -52,6 +52,8 @@
   </div>
 
   <div class="actions">
-    <%= f.submit 'Submit Location', :class => 'btn-large btn-success' %>
+    <%= button_tag( :class => 'btn-large btn-success btn-location') do %>
+      Submit Location <span class="glyphicon glyphicon-hand-left" aria-hidden="true"></span>
+    <% end %>
   </div>
 <% end %>
